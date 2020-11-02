@@ -22,15 +22,16 @@ class M_Projet extends CI_Model {
     public function add_project($nom, $description, $lien) {
         $this->load->database();
         $now = date("Y-m-d H:i:s");
-        
-        $this->$nom = $nom;
-        $this->$description = $description;
-        $this->derniere_maj  = $now;
-        $this->lien = $lien;
 
-        $this->db->update('PFC_Projet');
+        $data = array(
+            'nom' => $nom,
+            'description' => $description,
+            'derniere_maj' => $now,
+            'lien' => $lien
+        );
 
-        
+        $this->db->insert('PFC_PROJET', $data);
+
     }
 
 }
