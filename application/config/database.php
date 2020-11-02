@@ -72,13 +72,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $active_group = 'default';
 $query_builder = TRUE;
-
+//mysql: host = localhost; dbname = Portfolio_MVC
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
-	'username' => '',
+	'username' => 'root',
 	'password' => '',
-	'database' => '',
+	'database' => 'Portfolio_MVC',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
