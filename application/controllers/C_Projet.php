@@ -23,7 +23,7 @@ class C_Projet extends CI_Controller {
 
 
 
-
+    //recupere tout les projets
     public function get_projects() {
         $projects = $this->M_Projet->get_all_project();
         $res = array();
@@ -35,27 +35,191 @@ class C_Projet extends CI_Controller {
         return $res;
     }
 
+    //recupere un projet par le biais de son id
     public function get_project_by_id($id) {
         $project = $this->M_Projet->get_project_by_id($id);
         return $project;
     }
 
+    //ajoute un projet a la bdd, acces a la fonction via formulaire
     public function add_a_project() {
         $this->load->model('M_Projet');
 
-        // print_r($this->input->post());
-        $nom = $this->input->post('nom');
-        $description = $this->input->post('description');
-        $lien = $this->input->post('lien');
-        $this->M_Projet->add_project($nom, $description, $lien);
-        $base_url = base_url();
-        header("location: $base_url");
+        //test si les données ont été renseigné
+        if (isset($_POST['nom']) && isset($_POST['description']) && isset($_POST['lien'])) {
+            if (!empty($_POST['nom']) && !empty($_POST['description']) && !empty($_POST['lien'])) {
+
+                $nom = $this->input->post('nom');
+                $description = $this->input->post('description');
+                $lien = $this->input->post('lien');
+
+                $this->M_Projet->add_project($nom, $description, $lien);
+
+                $base_url = base_url();
+                header("location: $base_url");
+            } else {
+                return "Veuillez remplir les champs.";
+            }
+        }
+        
      
         
     }
+    
+    //supprime un projet de la bdd, acces a la fonction via formulaire
+    public function remove_a_project() {
+        $this->load->model('M_Projet');
 
-    function toto() {
-        echo "<h1>Toto</h1>";
+        //recuperation via la methode post
+        $id = $this->input->post('id');
+
+        //test si le parametre est vide
+        if ($id != "") {
+            $this->M_Projet->rm_project($id);
+        } 
+        
+        //retour sur la page principale
+        $base_url = base_url();
+        header("location: $base_url");
+
+    }
+
+    /**
+     * SETTERS
+     */
+
+     //change le nom du projet
+    public function change_name() {
+        $this->load->model('M_Projet');
+
+        if (isset($_POST['id']) && isset($_POST['new_name'])) {
+            if (!empty($_POST['id']) && isset($_POST['new_name'])){
+                $id = $this->input->post('id');
+                $nom = $this->input->post('new_name');
+                
+                $this->M_Projet->set_name($id, $nom);
+
+                
+            } else {
+                return "Veuillez renseigner un nom.";
+            }
+        }
+
+        $base_url = base_url();
+        header("location: $base_url");
+
+    }
+
+    //change la description du prjet
+    public function change_description() {
+        $this->load->model('M_Projet');
+
+        if (isset($_POST['id']) && isset($_POST['new_description'])) {
+            if (!empty($_POST['id']) && isset($_POST['new_description'])){
+                $id = $this->input->post('id');
+                $description = $this->input->post('new_description');
+                
+                $this->M_Projet->set_description($id, $description);
+
+                
+            } else {
+                return "Veuillez renseigner une description.";
+            }
+        }
+
+        $base_url = base_url();
+        header("location: $base_url");
+
+    }
+
+    //change le lien du projet
+    public function change_lien() {
+        $this->load->model('M_Projet');
+
+        if (isset($_POST['id']) && isset($_POST['new_lien'])) {
+            if (!empty($_POST['id']) && isset($_POST['new_lien'])){
+                $id = $this->input->post('id');
+                $lien = $this->input->post('new_lien');
+                
+                $this->M_Projet->set_lien($id, $lien);
+
+                $base_url = base_url();
+                header("location: $base_url");
+            } else {
+                return "Veuillez renseigner un lien.";
+            }
+        }
+
+        $base_url = base_url();
+        header("location: $base_url");
+
+    }
+
+    /**
+     * GETTERS
+     */
+
+     //recupere le lien d'un projet
+    public function recup_lien($id) {
+        $this->load->model('M_Projet');
+
+        if (isset($_POST['id'])) {
+            if (!empty($_POST['id'])){
+                $id = $this->input->post('id');
+
+                $lien = $this->M_Projet->get_lien($id);
+
+                $base_url = base_url();
+                header("location: $base_url");
+            } else {
+                $lien = "Selectionnez un projet.";
+            }
+        }
+
+        return $lien;
+
+    }
+
+    //recupere le nom d'un projet
+    public function recup_nom($id) {
+        $this->load->model('M_Projet');
+
+        if (isset($_POST['id'])) {
+            if (!empty($_POST['id'])){
+                $id = $this->input->post('id');
+
+                $nom = $this->M_Projet->get_nom($id);
+                
+                $base_url = base_url();
+                header("location: $base_url");
+            } else {
+                $nom = "Selectionnez un projet.";
+            }
+        }
+
+        return $nom;
+
+    }
+
+    //recupere la description d'un projet
+    public function recup_description($id) {
+        $this->load->model('M_Projet');
+
+        if (isset($_POST['id'])) {
+            if (!empty($_POST['id'])){
+                $id = $this->input->post('id');
+
+                $description = $this->M_Projet->get_description($id);
+                
+                $base_url = base_url();
+                header("location: $base_url");
+            } else {
+                $description = "Selectionnez un projet.";
+            }
+        }
+
+        return $description;
+
     }
 
 
