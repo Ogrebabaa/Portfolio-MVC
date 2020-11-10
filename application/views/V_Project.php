@@ -145,7 +145,7 @@
     <div class="row">
         <div class="col ">
         <!-- Formulaire d'ajout de projet, à etoffer plus tard, la c'etait pour test les fonctions -->
-            <form action="<?= base_url().'/C_Projet/add_a_project' ?>" method="POST" role="form">
+            <form action="<?= base_url().'C_Projet/add_a_project' ?>" method="POST" role="form">
                 <legend>Ajout de projet</legend>
 
                 <div class="form-group">
@@ -172,7 +172,7 @@
         </div>
         <div class="col ">
             <!-- Formulaire de suppression de projet, à etoffer plus tard, la c'etait pour test les fonctions -->
-            <form action="<?= base_url().'/C_Projet/remove_a_project' ?>" method="POST" role="form">
+            <form action="<?= base_url().'C_Projet/remove_a_project' ?>" method="POST" role="form">
                 <legend>Suppression de projet</legend>
 
                 <div class="form-group">
@@ -187,7 +187,7 @@
 
             </form>
             <!-- Formulaire de changement de nom de projet-->
-            <form action="<?= base_url().'/C_Projet/change_name' ?>" method="POST" role="form">
+            <form action="<?= base_url().'C_Projet/change_name' ?>" method="POST" role="form">
                 <legend>Changement nom de projet</legend>
 
                 <div class="form-group">
@@ -208,7 +208,7 @@
 
             </form>
             <!-- Formulaire de changement de description de projet-->
-            <form action="<?= base_url().'/C_Projet/change_description' ?>" method="POST" role="form">
+            <form action="<?= base_url().'C_Projet/change_description' ?>" method="POST" role="form">
                 <legend>Changement description de projet</legend>
 
                 <div class="form-group">
@@ -230,7 +230,7 @@
             </form>
 
             <!-- Formulaire de changement de description de projet-->
-            <form action="<?= base_url().'/C_Projet/change_lien' ?>" method="POST" role="form">
+            <form action="<?= base_url().'C_Projet/change_lien' ?>" method="POST" role="form">
                 <legend>Changement lien de projet</legend>
 
                 <div class="form-group">

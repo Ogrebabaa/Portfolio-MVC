@@ -4,8 +4,11 @@ class C_Projet extends CI_Controller {
 
     // $this->load->model('M_Projet');
     public function index() {
+        //VARIABLES
+        $data['title'] = "Mes projets";
         //load
         $this->load->model('M_Projet');
+        $this->load->view('header', $data);
         $this->load->view('Layout');
         
         //data treatement
@@ -18,7 +21,7 @@ class C_Projet extends CI_Controller {
         $data["nb_projects"] = $nb_projects;
         //export
         $this->load->view('V_Project', $data);
-        
+        $this->load->view('footer');
     }
 
 
@@ -56,7 +59,7 @@ class C_Projet extends CI_Controller {
                 $this->M_Projet->add_project($nom, $description, $lien);
 
                 $base_url = base_url();
-                header("location: $base_url");
+                header("location: $base_url/C_Projet");
             } else {
                 return "Veuillez remplir les champs.";
             }
@@ -93,7 +96,7 @@ class C_Projet extends CI_Controller {
         $this->load->model('M_Projet');
 
         if (isset($_POST['id']) && isset($_POST['new_name'])) {
-            if (!empty($_POST['id']) && isset($_POST['new_name'])){
+            if (!empty($_POST['id']) && empty($_POST['new_name'])){
                 $id = $this->input->post('id');
                 $nom = $this->input->post('new_name');
                 
@@ -106,7 +109,7 @@ class C_Projet extends CI_Controller {
         }
 
         $base_url = base_url();
-        header("location: $base_url");
+        header("location: $base_url/C_Projet");
 
     }
 
@@ -128,7 +131,7 @@ class C_Projet extends CI_Controller {
         }
 
         $base_url = base_url();
-        header("location: $base_url");
+        header("location: $base_url/C_Projet");
 
     }
 
@@ -151,7 +154,7 @@ class C_Projet extends CI_Controller {
         }
 
         $base_url = base_url();
-        header("location: $base_url");
+        header("location: $base_url/C_Projet");
 
     }
 
@@ -170,7 +173,7 @@ class C_Projet extends CI_Controller {
                 $lien = $this->M_Projet->get_lien($id);
 
                 $base_url = base_url();
-                header("location: $base_url");
+                header("location: $base_url/C_Projet");
             } else {
                 $lien = "Selectionnez un projet.";
             }
@@ -191,7 +194,7 @@ class C_Projet extends CI_Controller {
                 $nom = $this->M_Projet->get_nom($id);
                 
                 $base_url = base_url();
-                header("location: $base_url");
+                header("location: $base_url/C_Projet");
             } else {
                 $nom = "Selectionnez un projet.";
             }
@@ -212,7 +215,7 @@ class C_Projet extends CI_Controller {
                 $description = $this->M_Projet->get_description($id);
                 
                 $base_url = base_url();
-                header("location: $base_url");
+                header("location: $base_url/C_Projet");
             } else {
                 $description = "Selectionnez un projet.";
             }
