@@ -1,7 +1,7 @@
 
 
 <!-- NAV -->
-<ul class="nav md-tabs light-blue lighten-1 mx-0 mb-0 mt-1">
+<ul class="nav md-tabs light-blue lighten-1 mx-0 mb-0 ">
     <?php
     // print_r($nav);
 

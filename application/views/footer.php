@@ -1,7 +1,7 @@
 <!-- FOOTER CONTENT -->
 <div>
     <!-- Footer -->
-<footer class="page-footer font-small teal pt-4">
+<footer class="page-footer font-small teal pt-4 footer">
 
     <!-- Footer Text -->
     <div class="container-fluid text-center text-md-left">

@@ -6,6 +6,12 @@ class C_Projet extends CI_Controller {
     public function index() {
         //VARIABLES
         $data['title'] = "Mes projets";
+
+        // navigation
+        $this->load->model('M_Navigation');
+        $nav = $this->get_nav();
+        $data['nav'] = $nav;
+
         //load
         $this->load->model('M_Projet');
         $this->load->view('header', $data);
@@ -24,6 +30,11 @@ class C_Projet extends CI_Controller {
         $this->load->view('footer');
     }
 
+    //navigation
+    public function get_nav() {
+        $nav = $this->M_Navigation->get_nav();
+        return $nav;
+    }
 
 
     //recupere tout les projets

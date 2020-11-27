@@ -8,13 +8,18 @@
     <!-- /META HERE --> 
     <!-- LINKS HERE -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="stylesheet" href="<?php echo base_url()?>CSS/style.css">
+    <link rel="stylesheet" href="../CSS/style.css">
 
-    
+   
     <!-- /LINKS HERE -->
     
     <title><?php echo $title ?></title>
     
 </head>
 <body>
-    
+<?php
+
+
+
+
+?>

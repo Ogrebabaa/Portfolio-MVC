@@ -22,7 +22,11 @@ public function get_content() {
     return $query->result();
 }
 
-
+public function setNom($id, $nom) {
+    $this->load->database();
+    $query = "UPDATE PFC_AccueilContent SET nom = ? WHERE id = ?";
+    $this->db->query($query, array($nom, $id));
+}
 
 
 
