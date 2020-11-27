@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 
 <!-- NAV -->
 <ul class="nav md-tabs light-blue lighten-1 mx-0 mb-0 ">
@@ -19,7 +17,7 @@
     
 </ul>
 <!-- /NAV -->
-=======
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,8 +27,16 @@
     <title>Portfolio MVC</title>
 </head>
 <body>
+
     <h1>Voici la vue principale</h1>
     
 </body>
 </html>
->>>>>>> 2c4d69dccf3a28f7a3bf8f7be4bdda6f9d3f506a
+
+
+
+    <h1></h1>
+    
+</body>
+</html>
+
