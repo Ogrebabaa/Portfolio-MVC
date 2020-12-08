@@ -26,7 +26,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $config['base_url'] = 'http://localhost/soloh-Portfolio/index.php/';
 
-$config['base_url'] = '';
 
 
 /*
@@ -40,7 +39,6 @@ $config['base_url'] = '';
 |
 */
 
-$config['index_page'] = '';
 
 $config['index_page'] = 'index.php';
 
@@ -108,7 +106,7 @@ $config['charset'] = 'UTF-8';
 | setting this variable to TRUE (boolean).  See the user guide for details.
 |
 */
-$config['enable_hooks'] = FALSE;
+$config['enable_hooks'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------

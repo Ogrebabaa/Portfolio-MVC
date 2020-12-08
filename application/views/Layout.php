@@ -9,7 +9,7 @@
         $lien = $nav[$i]->lien;
         echo "
         <li class='nav-item'>
-            <a class='nav-link' href='$lien'>$libelle</a>
+            <a class='nav-link' target='blank' href='$lien'>$libelle</a>
         </li>
         ";
     }
@@ -28,7 +28,6 @@
 </head>
 <body>
 
-    <h1>Voici la vue principale</h1>
     
 </body>
 </html>

@@ -5,6 +5,30 @@ class C_Accueil extends CI_Controller {
     public function index() {
         //VARIABLES
         $data['title'] = "Accueil";
+
+        //load language
+        // $this->lang->load("hello", "francais");
+        // $this->changeLang();
+        if ($this->input->post("lang") !== null) {
+            $lang = $this->input->post("lang");
+        } else {
+            $lang = "FR";
+        }
+
+        switch ($lang) {
+            case "FR":
+                $this->lang->load("hello", "francais");
+            break;
+            case "ENG":
+                $this->lang->load("hello", "english");
+            break;
+            default :
+                $this->lang->load("hello", "francais");
+        break;
+
+        
+        }
+
         
         // navigation
         $this->load->model('M_Navigation');
@@ -17,9 +41,19 @@ class C_Accueil extends CI_Controller {
         $this->load->view('Layout', $data);
         
         //data treatement
+
+        //lang
+        $hi_msg = $this->lang->line('hello');
+        $desc = $this->lang->line('desc');
+        $data['hi_msg'] = $hi_msg;
+        $data['desc'] = $desc;
+
+        //nom
         $content = $this->get_content();
         $nom = $content[0]->nom;
         $data["nom"] = $nom;
+
+
 
         
 
@@ -37,6 +71,8 @@ class C_Accueil extends CI_Controller {
         $content = $this->M_Accueil->get_content();
         return $content;
     }
+
+   
 
 
     
